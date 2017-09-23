@@ -1,0 +1,41 @@
+@media (max-width: 720px) {
+    .login-container {
+      margin-top:30%;
+    }
+    .send-text-container {
+      margin-top:20%
+    }
+  }
+  @media (min-width: 720px) {
+    .login-container {
+      margin-top:10%;
+    }
+    .send-text-container {
+      margin-top:10%
+    }
+  }
+  body {
+    background-color: #ECECEA!important;
+    font-family: fantasy!important;
+  }
+  .btn, input, textarea {
+    border-radius: 0px!important;
+  }
+
+  .btn-success {
+    color: #575853!important;
+    background-color: #D9853B!important;
+    border-color: #D9853B!important;
+
+}
+.btn-primary {
+  color: #575853!important;
+  background-color: #74AFAD!important;
+  border-color: #74AFAD!important;
+
+}
+.title {
+  font-family: fantasy;
+  color: #9b5858;
+  font-size: 42px;
+}
