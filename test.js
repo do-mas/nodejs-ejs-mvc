@@ -56,11 +56,5 @@ users.forEach(function(user){
 // });
 
 // userService.removeUser(1234);
-// userService.removeUser(1234);
-// userService.removeUser(1234);
-// userService.removeUser(1234);
-// userService.removeUser(1234);
-// userService.removeUser(1234);
-// userService.removeUser(1234);
 
 // console.log(userService.getUsers().length);

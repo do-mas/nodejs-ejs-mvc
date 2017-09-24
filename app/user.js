@@ -32,7 +32,6 @@ module.exports = {
         return userRez;
     },
     addUser: function (user) {
-        console.log('adding user');
         users.push(user);
     },
     removeUser: function (id) {
@@ -42,12 +41,10 @@ module.exports = {
             if (user._id == id) {
                 index = users.indexOf(user);
             }
-
         });
         if (index !== null) {
             users.splice(index, 1);
         }
-
     },
     getUsers: function () {
         return users;
