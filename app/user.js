@@ -1,10 +1,19 @@
 var users = [
     {
-        _id: '59c68a07dc293403af0b0bff',
+        _id: '1',
         __v: 0,
         local:
         {
-            password: '$2a$08$jNUqaZknZdxnTX.wayXQ1uQwaOyH.loAzNQD7vxL6o9FpiYYgH4Py',
+            password: '$2a$08$jNUqaZk',
+            email: 'dom4'
+        }
+    },
+    {
+        _id: '2',
+        __v: 0,
+        local:
+        {
+            password: 'iYYgH4Py',
             email: 'dom4'
         }
     }
@@ -12,16 +21,36 @@ var users = [
 
 module.exports = {
 
-    getUser : function (id) {
-        console.log('getting user');
-        return users[0];
+    getUser: function (id) {
+        var userRez = null;
+        users.forEach(function (user) {
+            if (user._id == id) {
+                userRez = user;
+                return;
+            }
+        });
+        return userRez;
     },
-    addUser : function (user) {
+    addUser: function (user) {
         console.log('adding user');
         users.push(user);
     },
-    removeUser : function (id) {
-        console.log('removing user');
+    removeUser: function (id) {
+
+        var index = null;
+        users.forEach(function (user) {
+            if (user._id == id) {
+                index = users.indexOf(user);
+            }
+
+        });
+        if (index !== null) {
+            users.splice(index, 1);
+        }
+
+    },
+    getUsers: function () {
+        return users;
     }
 
 };
