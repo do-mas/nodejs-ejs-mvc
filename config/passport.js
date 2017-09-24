@@ -1,5 +1,6 @@
 // load all the things we need
 var LocalStrategy = require('passport-local').Strategy;
+var userService = require('../app/user.js');
 
 // var User = require('../app/models/user');
 // var configAuth = require('./auth'); // use this one for testing
@@ -12,17 +13,7 @@ module.exports = function (passport) {
 
     // used to deserialize the user
     passport.deserializeUser(function (id, done) {
-
-
-        var user = {
-            _id: '59c68a07dc293403af0b0bff',
-            __v: 0,
-            local:
-            {
-                password: '$2a$08$jNUqaZknZdxnTX.wayXQ1uQwaOyH.loAzNQD7vxL6o9FpiYYgH4Py',
-                email: 'dom4'
-            }
-        }
+        var user = userService.getUser(id);
         done(null, user);
     });
     //login 
@@ -35,15 +26,8 @@ module.exports = function (passport) {
         function (req, email, password, done) {
             if (email)
                 email = email.toLowerCase(); // Use lower-case e-mails to avoid case-sensitive e-mail matching
-            var user = {
-                _id: '59c68a07dc293403af0b0bff',
-                __v: 0,
-                local:
-                {
-                    password: '$2a$08$jNUqaZknZdxnTX.wayXQ1uQwaOyH.loAzNQD7vxL6o9FpiYYgH4Py',
-                    email: 'dom4'
-                }
-            };
+
+            var user = userService.getUser(email);
             done(null, user);
         }));
 
@@ -60,15 +44,7 @@ module.exports = function (passport) {
             // asynchronous
             process.nextTick(function () {
                 if (!req.user) {
-                    var user = {
-                        _id: '59c68a07dc293403af0b0bff',
-                        __v: 0,
-                        local:
-                        {
-                            password: '$2a$08$jNUqaZknZdxnTX.wayXQ1uQwaOyH.loAzNQD7vxL6o9FpiYYgH4Py',
-                            email: 'dom4'
-                        }
-                    }
+                    var user = userService.getUser(email);
                     done(null, user);
                 } else if (!req.user.local.email) {
                 } else {

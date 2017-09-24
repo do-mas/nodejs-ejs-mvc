@@ -1,3 +1,4 @@
+var userService = require('./user.js');
 module.exports = function (app, passport) {
 
     app.get('/', function (req, res) {
