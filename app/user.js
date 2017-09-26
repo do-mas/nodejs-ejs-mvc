@@ -1,44 +1,30 @@
-var users = [
-    {
-        _id: '1',
-        __v: 0,
-        local:
-        {
-            password: '$2a$08$jNUqaZk',
-            email: 'dom4'
-        }
-    },
-    {
-        _id: '2',
-        __v: 0,
-        local:
-        {
-            password: 'iYYgH4Py',
-            email: 'dom4'
-        }
-    }
-];
+var users = [];
 
 module.exports = {
+
+    deleteAll:  function(){
+        users = [];
+    },
 
     getUser: function (id) {
         var userRez = null;
         users.forEach(function (user) {
-            if (user._id == id) {
+            if (user.id == id) {
                 userRez = user;
                 return;
             }
         });
+        // return null;
         return userRez;
     },
     addUser: function (user) {
         users.push(user);
     },
-    removeUser: function (id) {
+    deleteUser: function (id) {
 
         var index = null;
         users.forEach(function (user) {
-            if (user._id == id) {
+            if (user.id == id) {
                 index = users.indexOf(user);
             }
         });
